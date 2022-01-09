@@ -10,4 +10,10 @@ contract("SimpleStorage", function (/* accounts */) {
     await SimpleStorage.deployed();
     return assert.isTrue(true);
   });
+
+  it("initial value is 0", async () => {
+    const ssInstance = await SimpleStorage.deployed();
+    const storedData = await ssInstance.getStoredData.call();
+    assert.equal(storedData, 0, `Initial state should be zero`);
+  });
 });
