@@ -32,6 +32,7 @@ contract("SimpleStorage", function (accounts) {
   describe("Owner verification", () => {
     it("should not let someone else change the variable", async () => {
       const [owner, badJoe] = accounts;
+
       const ssInstance = await SimpleStorage.new(42, { from: owner });
 
       try {

@@ -1,8 +1,4 @@
-console.log("No value for FOO yet:", process.env.FOO);
-const dotenv = require("dotenv");
-dotenv.config();
-
-console.log("Now the value for FOO is:", process.env.FOO);
+dotenv = require("dotenv").config();
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -24,6 +20,7 @@ console.log("Now the value for FOO is:", process.env.FOO);
  */
 
 const HDWalletProvider = require("@truffle/hdwallet-provider");
+const path = require("path");
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
@@ -38,6 +35,8 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
+
+  contracts_build_directory: path.join(__dirname, "client/src/contracts"),
 
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
